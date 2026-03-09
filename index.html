@@ -30,6 +30,28 @@ h1{
     margin:auto;
 }
 
+/* search */
+
+#search{
+    padding:10px;
+    width:250px;
+    border-radius:8px;
+    border:none;
+    margin-top:15px;
+}
+
+/* random button */
+
+.random-btn{
+    padding:10px 20px;
+    border:none;
+    border-radius:8px;
+    background:#00ff9c;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:10px;
+}
+
 /* arcade grid */
 
 .games{
@@ -56,6 +78,7 @@ h1{
 .card a{
     color:white;
     text-decoration:none;
+    font-size:18px;
 }
 
 footer{
@@ -70,12 +93,10 @@ footer{
 
 <header>
 
-<!-- CAT LOGO -->
 <div class="logo">
 
 <svg viewBox="0 0 200 120">
 
-<!-- fence -->
 <rect x="0" y="80" width="200" height="10" fill="#555"/>
 <rect x="10" y="60" width="10" height="30" fill="#555"/>
 <rect x="40" y="60" width="10" height="30" fill="#555"/>
@@ -84,16 +105,13 @@ footer{
 <rect x="130" y="60" width="10" height="30" fill="#555"/>
 <rect x="160" y="60" width="10" height="30" fill="#555"/>
 
-<!-- cat -->
 <g>
 <ellipse cx="90" cy="50" rx="25" ry="15" fill="black"/>
 <circle cx="115" cy="45" r="10" fill="black"/>
 
-<!-- ears -->
 <polygon points="108,35 112,25 116,35" fill="black"/>
 <polygon points="118,35 122,25 126,35" fill="black"/>
 
-<!-- tail -->
 <path d="M65 50 Q50 30 70 20" stroke="black" stroke-width="6" fill="none"/>
 </g>
 
@@ -103,24 +121,37 @@ footer{
 
 <h1>Cat's Arcade</h1>
 
+<input
+id="search"
+type="text"
+placeholder="Search games..."
+onkeyup="searchGames()"
+>
+
+<br><br>
+
+<button class="random-btn" onclick="randomGame()">
+🎲 Random Game
+</button>
+
 </header>
 
 <section class="games">
 
 <div class="card">
-<a href="#">Run 3</a>
+<a href="games/run3/index.html">Run 3</a>
 </div>
 
 <div class="card">
-<a href="#">Slope</a>
+<a href="games/slope/index.html">Slope</a>
 </div>
 
 <div class="card">
-<a href="#">Tetris</a>
+<a href="games/tetris/index.html">Tetris</a>
 </div>
 
 <div class="card">
-<a href="#">2048</a>
+<a href="games/2048/index.html">2048</a>
 </div>
 
 </section>
@@ -128,6 +159,8 @@ footer{
 <footer>
 Cat's Arcade • Free Browser Games
 </footer>
+
+<script src="app.js"></script>
 
 </body>
 </html>

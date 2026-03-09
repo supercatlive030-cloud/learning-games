@@ -33,7 +33,9 @@ window.location.href = games[random].href;
 }
 
 
-// SMALL CARD ANIMATION
+// CARD ANIMATION
+
+document.addEventListener("DOMContentLoaded", function(){
 
 document.querySelectorAll(".card").forEach(card => {
 
@@ -43,6 +45,8 @@ card.style.boxShadow = "0 0 15px #00ff9c";
 
 card.addEventListener("mouseleave", () => {
 card.style.boxShadow = "none";
+});
+
 });
 
 });
