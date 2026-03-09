@@ -1,4 +1,6 @@
-// LIST OF GAMES (MATCH YOUR FOLDER NAMES)
+document.addEventListener("DOMContentLoaded", function(){
+
+// LIST OF GAMES (MATCH YOUR FOLDERS)
 
 const games = [
 "2048",
@@ -31,9 +33,7 @@ card.className = "card";
 let title = game.replaceAll("-", " ");
 
 card.innerHTML = `
-<a href="games/${game}/index.html">
-${title}
-</a>
+<a href="games/${game}/index.html">${title}</a>
 `;
 
 gameGrid.appendChild(card);
@@ -47,10 +47,9 @@ loadGames();
 
 // SEARCH FUNCTION
 
-function searchGames(){
+window.searchGames = function(){
 
 let input = document.getElementById("search").value.toLowerCase();
-
 let cards = document.querySelectorAll(".card");
 
 cards.forEach(card => {
@@ -65,12 +64,12 @@ card.style.display = "none";
 
 });
 
-}
+};
 
 
 // RANDOM GAME
 
-function randomGame(){
+window.randomGame = function(){
 
 let randomIndex = Math.floor(Math.random() * games.length);
 
@@ -78,4 +77,6 @@ let game = games[randomIndex];
 
 window.location.href = `games/${game}/index.html`;
 
-}
+};
+
+});
