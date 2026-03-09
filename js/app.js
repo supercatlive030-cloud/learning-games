@@ -1,81 +1,58 @@
-document.addEventListener("DOMContentLoaded", function(){
-
-// LIST OF GAMES (MATCH YOUR FOLDERS)
-
 const games = [
-"2048",
-"chroma",
-"cookie-clicker",
-"doodle-jump",
-"geometry-dash",
-"moto-classic-version",
-"moto-winter-version",
-"pacman",
-"slope",
-"slope-2"
+{ name: "2048", folder: "2048" },
+{ name: "Chrome Dino", folder: "chrome" },
+{ name: "Cookie Clicker", folder: "cookie-clicker" },
+{ name: "Doodle Jump", folder: "doodle-jump" },
+{ name: "Geometry Dash", folder: "geometry-dash" },
+{ name: "Pacman", folder: "pacman" },
+{ name: "Slope", folder: "slope" }
 ];
 
-const gameGrid = document.getElementById("gameGrid");
+const grid = document.getElementById("gameGrid");
 
+function loadGames(list){
+grid.innerHTML = "";
 
-// LOAD GAMES
+list.forEach(game => {
 
-function loadGames(){
-
-gameGrid.innerHTML = "";
-
-games.forEach(game => {
-
-let card = document.createElement("div");
+const card = document.createElement("div");
 card.className = "card";
 
-let title = game.replaceAll("-", " ");
-
 card.innerHTML = `
-<a href="games/${game}/index.html">${title}</a>
+<a href="games/${game.folder}/index.html">
+${game.name}
+</a>
 `;
 
-gameGrid.appendChild(card);
+grid.appendChild(card);
 
 });
+}
+
+function searchGames(){
+
+const search = document
+.getElementById("search")
+.value
+.toLowerCase();
+
+const filtered = games.filter(game =>
+game.name.toLowerCase().includes(search)
+);
+
+loadGames(filtered);
 
 }
 
-loadGames();
+function randomGame(){
 
+const random = games[
+Math.floor(Math.random()*games.length)
+];
 
-// SEARCH FUNCTION
+window.location =
+`games/${random.folder}/index.html`;
 
-window.searchGames = function(){
-
-let input = document.getElementById("search").value.toLowerCase();
-let cards = document.querySelectorAll(".card");
-
-cards.forEach(card => {
-
-let text = card.innerText.toLowerCase();
-
-if(text.includes(input)){
-card.style.display = "flex";
-}else{
-card.style.display = "none";
 }
 
-});
-
-};
-
-
-// RANDOM GAME
-
-window.randomGame = function(){
-
-let randomIndex = Math.floor(Math.random() * games.length);
-
-let game = games[randomIndex];
-
-window.location.href = `games/${game}/index.html`;
-
-};
-
-});
+loadGames(games);
