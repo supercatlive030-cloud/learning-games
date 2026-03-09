@@ -11,6 +11,26 @@
 
 <body>
 
+<!-- LOCK SCREEN -->
+
+<div id="lockScreen">
+
+<h2>🔒 Enter Passcode</h2>
+
+<input
+type="password"
+id="passInput"
+placeholder="Enter passcode"
+>
+
+<br><br>
+
+<button onclick="checkPass()">Enter</button>
+
+<p id="error"></p>
+
+</div>
+
 <header>
 
 <h1>Cat's Arcade</h1>
@@ -31,6 +51,7 @@ onkeyup="searchGames()"
 </header>
 
 <!-- GAME GRID -->
+
 <section class="games" id="gameGrid"></section>
 
 <footer>

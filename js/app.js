@@ -1,3 +1,23 @@
+/* PASSCODE SYSTEM */
+
+function checkPass(){
+
+const pass = document.getElementById("passInput").value;
+
+if(pass === "012312"){
+
+document.getElementById("lockScreen").style.display = "none";
+
+}else{
+
+document.getElementById("error").innerText = "Wrong passcode";
+
+}
+
+}
+
+/* GAME LIST */
+
 const games = [
 { name: "2048", folder: "2048" },
 { name: "Chrome Dino", folder: "chrome" },
@@ -10,7 +30,10 @@ const games = [
 
 const grid = document.getElementById("gameGrid");
 
+/* LOAD GAMES */
+
 function loadGames(list){
+
 grid.innerHTML = "";
 
 list.forEach(game => {
@@ -27,7 +50,10 @@ ${game.name}
 grid.appendChild(card);
 
 });
+
 }
+
+/* SEARCH */
 
 function searchGames(){
 
@@ -44,6 +70,8 @@ loadGames(filtered);
 
 }
 
+/* RANDOM GAME */
+
 function randomGame(){
 
 const random = games[
@@ -54,5 +82,7 @@ window.location =
 `games/${random.folder}/index.html`;
 
 }
+
+/* START */
 
 loadGames(games);
