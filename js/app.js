@@ -8,10 +8,9 @@ const games = [
 "cookie-clicker",
 "doodle-jump",
 "geometry-dash",
-"moto-classic",
-"moto-winter",
+"moto-classic-version",
+"moto-winter-version",
 "pacman",
-"retro-bowl2",
 "slope",
 "slope-2"
 ];
@@ -57,7 +56,7 @@ cards.forEach(card => {
 let text = card.innerText.toLowerCase();
 
 if(text.includes(input)){
-card.style.display = "block";
+card.style.display = "flex";
 }else{
 card.style.display = "none";
 }
